@@ -1,0 +1,289 @@
+/* ---- Font Import ---- */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:wght@200;300;400;500;600;700;800&900&display=swap");
+
+/* ---- Base Rules ---- */
+* {
+    font-family: 'Cairo';
+}
+
+body {
+    background: linear-gradient(0deg, #bcebcb 0%, #93b48b 100%);
+    margin: 0;
+    font-family: 'Cairo';
+    color: #f7fff6;
+}
+
+.collapsed p {
+    display: none;
+}
+
+/* ---- Typography ---- */
+h1,
+h2 {
+    font-family: 'Cairo';
+}
+
+h1 {
+    font-size: 3em;
+    margin: 10rem 1rem;
+}
+
+h2 {
+    font-size: 3em;
+    color: #f7fff6;
+    border-bottom: 3px solid #bcebcb;
+}
+
+p {
+    line-height: 1.6em;
+    color: #f7fff7;
+}
+
+.toggle-btn {
+    color: #f7fff6;
+    border: 1px solid white;
+    border-radius: 13px;
+    background-color: #87d68d;
+    padding: 10px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    margin: 20px;
+}
+
+.toggle-btn:hover {
+    background-color: #61a268;
+}
+
+/* ---- Layout ---- */
+main {
+    margin: 10vh 1em 10vh;
+}
+
+.main-hero {
+    min-height: 40vh;
+    padding-top: 3em;
+}
+
+section {
+    position: relative;
+    min-height: 80vh;
+}
+
+/* ---- Navigation Styles ---- */
+.navbar__menu ul {
+    padding-left: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.navbar__menu li {
+    display: inline-block;
+}
+
+.menu__link {
+    display: block;
+    padding: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #8491a3;
+    border-radius: 1rem;
+    margin: 0.4rem;
+}
+
+.menu__link:hover {
+    background: #8491a5;
+    color: #f7fff6;
+    transition: ease 0.3s all;
+}
+
+.activated-link {
+    color: #f7fff6;
+    background: #bcebcb;
+    font-weight: bold;
+    border-radius: 1rem;
+}
+
+/* ---- Header & Footer Styles ---- */
+.page__header {
+    background: #f7fff6;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.page__footer {
+    background: #8491a3;
+    padding: 3em;
+    color: #f7fff6;
+}
+
+.page__footer p {
+    color: #f7fff6;
+}
+
+/* ---- Section & Theme Styles ---- */
+.landing__container {
+    padding: 1em;
+    text-align: left;
+}
+
+section:nth-of-type(even) .landing__container {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right;
+}
+
+section:nth-of-type(odd) .landing__container::before,
+section:nth-of-type(even) .landing__container::before,
+section:nth-of-type(3n) .landing__container::after,
+section:nth-of-type(3n+1) .landing__container::after {
+    content: '';
+    position: absolute;
+    z-index: -5;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(odd) .landing__container::before {
+    background: rgba(255, 255, 255, 0.187);
+    width: 20vh;
+    height: 20vh;
+}
+
+section:nth-of-type(even) .landing__container::before {
+    background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
+    top: 3em;
+    right: 3em;
+    width: 10vh;
+    height: 10vh;
+}
+
+section:nth-of-type(3n) .landing__container::after {
+    background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
+    right: 0;
+    bottom: 0;
+    width: 10vh;
+    height: 10vh;
+}
+
+section:nth-of-type(3n + 1) .landing__container::after {
+    background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
+    right: 20vw;
+    bottom: -5em;
+    width: 15vh;
+    height: 15vh;
+}
+
+/* ---- Active State Styles ---- */
+section.activated-section {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+section.activated-section .landing__container::before,
+section.activated-section .landing__container::after {
+    opacity: 1;
+}
+
+#navbar__list.activated-section {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* ---- Scroll-to-Top Button ---- */
+#scrollTop {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: #87d68d;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+#scrollTop:hover {
+    background-color: #4dce58;
+}
+
+/* ---- Keyframe Animations ---- */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg) translate(-1em) rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg) translate(-1em) rotate(-360deg);
+    }
+}
+
+/* Small devices (phones, < 16em / 256px) */
+@media only screen and (max-width: 320px) {
+    .page__header{
+        margin-bottom: 10rem;
+    }
+    
+    .navbar__menu ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu__link {
+        padding: 0.5em;
+        font-size: 0.8em;
+    }
+
+    h1, h2 {
+        font-size: 2em;
+    }
+
+   #scrollTop {
+        font-size: 1rem;
+    }
+}
+
+/* Medium devices (phones, between 16em and 39em / 256px - 624px) */
+@media only screen and (min-width: 320px) and (max-width: 520px) {
+    .navbar__menu ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .menu__link {
+        padding: 0.7em;
+        font-size: 1em;
+    }
+
+    h1, h2 {
+        font-size: 2.5em;
+    }
+    
+}
+
+/* Large devices (tablets, desktops, min-width: 39em / 624px and up) */
+@media only screen and (min-width: 520px) {
+    .navbar__menu ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .menu__link {
+        padding: 1em;
+        font-size: 1rem;
+    }
+
+    h1, h2 {
+        font-size: 3em;
+    }
+
+}
